@@ -26,9 +26,10 @@ public class InsertionSort {
 	 
 	 public void insertionSortMyVersion()
 	 {
-		 int marker;		
+		 int marker;		 
 		 for(int i=0;i<numElem-1;i++)
 		 {
+			 int pos=-1;
 			 marker=arr[i+1];		 
 			 for(int j=i+1;j>0;j--)
 			 {
@@ -37,10 +38,12 @@ public class InsertionSort {
 					 {
 					 	numSwaps++;
 						arr[j]=arr[j-1];
-						 arr[j]=marker;
-					 }								
-				 
-			 }
+						// arr[j-1]=marker;	
+						pos=j-1;
+					 }					 
+			 }			
+			 if(pos>=0)
+				 arr[pos]=marker;
 		 }
 	 }
 	 
@@ -77,7 +80,7 @@ public class InsertionSort {
 		insertSort.insert(48);
 		insertSort.insert(37);
 		
-		insertSort.insertionSortBookVersion();
+		insertSort.insertionSortMyVersion();
 		System.out.println("number of swaps happened :"+insertSort.numSwaps);
 		System.out.println("number of passes happened :"+insertSort.numPasses);
 		insertSort.display();
